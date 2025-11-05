@@ -1,0 +1,263 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  max-width: 100dvw;
+  max-height: 100dvh;
+  margin: 0 auto;
+  background-color: #ffffcc;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  border: 1px solid #555;
+  font-size: 20px;
+  background-color: #fff;
+  font-weight: 500;
+}
+
+td:nth-child(3),
+td:nth-child(6) {
+  border-right: 2px solid black;
+}
+
+tr:nth-child(3) td,
+tr:nth-child(6) td {
+  border-bottom: 2px solid black;
+}
+
+.selected {
+  background-color: #cceeff;
+  /* 任意の目立つ色 */
+}
+
+.fixed {
+  color: red;
+  font-weight: bold;
+}
+
+.container {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+}
+
+.manual {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  margin-top: 30px;
+}
+
+#number,
+#delete,
+#memo,
+#numLock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.name {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+#memoSwitch {
+  margin-bottom: 30px;
+  padding: 5px 3px;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 150px;
+}
+
+.key {
+  width: 80px;
+  background-color: #333;
+  color: white;
+  padding: 2px 4px;
+}
+
+.btn {
+  border: solid 2px #000;
+  color: #000;
+  border-radius: 20px;
+  height: 60px;
+  width: 120px;
+  font-size: 1em;
+  box-shadow: 0 5px 0 #004;
+  display: inline-block;
+  background-color: rgba(255, 255, 0, 0.6);
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: unset;
+}
+
+.hinted {
+  background-color: #ffffcc;
+  font-weight: bold;
+  color: blue;
+  pointer-events: none;
+  /* ← これを付けると完全にクリック無効にもできる */
+}
+
+.memo {
+  display: grid;
+  position: absolute;
+  top: 0;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3列グリッド */
+  grid-template-rows: repeat(3, 1fr);
+  /* 3行グリッド */
+  font-size: 11px;
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  color: rgb(119, 119, 119);
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  pointer-events: none;
+}
+
+.memo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.lock {
+  color: blue;
+}
+
+#timer {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.keyboard {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .manual {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .main {
+    gap: 0;
+  }
+
+  .key {
+    display: none;
+  }
+
+  .name {
+    display: none;
+  }
+
+  #delete .flex {
+    display: none;
+  }
+
+  .input {
+    gap: 0;
+    margin-top: 0;
+  }
+
+  .container {
+    display: inline;
+  }
+
+  .option {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    gap: 25px;
+  }
+
+  #memoSwitch {
+    background-color: yellow;
+    border-radius: 50%;
+    padding: 5px 7px;
+    margin-bottom: 0;
+  }
+
+  #memo {
+    margin-top: 28px;
+    margin-left: 160px;
+    gap: 5px;
+  }
+
+  #memo .name {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .btn {
+    height: 60px;
+    width: 100px;
+  }
+
+  .guide {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .keyboard {
+    display: block;
+  }
+
+}
