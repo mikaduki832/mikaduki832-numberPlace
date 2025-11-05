@@ -1,0 +1,90 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+.setting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.btn {
+  border: solid 2px #000;
+  color: #000;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-size: 1em;
+  box-shadow: 0 5px 0 #004;
+  display: inline-block;
+}
+
+.color {
+  background-color: yellow;
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: unset;
+}
+
+#secret {
+  display: none;
+}
+
+.secret-message {
+  margin-top: 1000px;
+  font-size: 0.825rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.glow {
+  animation: blink 0.5s ease-in-out 2;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width:600px) {
+  #secret {
+    display: block;
+  }
+  .secret-message {
+    display: none;
+  }
+}
