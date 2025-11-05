@@ -188,7 +188,7 @@ tr:nth-child(6) td {
   display: none;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .manual {
     font-size: 1rem;
     font-weight: bold;
@@ -269,7 +269,7 @@ tr:nth-child(6) td {
 
 }
 
-@media (max-width: 1500px) {
+@media screen and (min-width: 768px) and (max-width: 1500px) {
   .manual {
     font-size: 1rem;
     font-weight: bold;
