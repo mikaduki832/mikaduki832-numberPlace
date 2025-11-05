@@ -88,3 +88,27 @@ h1 {
     display: none;
   }
 }
+
+@media (max-width:1500px) {
+
+  h1, h2 {
+    font-size: 3rem;
+  }
+  #secret {
+    display: block;
+  }
+  .secret-message {
+    display: none;
+  }
+  .btn {
+    padding: 30px 90px;
+    border-radius: 50%;
+    font-size: 3rem;
+  }
+  .setting {
+    gap: 100px;
+  }
+  .button {
+    gap: 40px;
+  }
+}
