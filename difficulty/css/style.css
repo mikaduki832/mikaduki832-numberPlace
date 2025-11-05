@@ -199,6 +199,11 @@ tr:nth-child(6) td {
     gap: 0;
   }
 
+  td {
+    width: 35px;
+    height: 35px;
+  }
+
   .key {
     display: none;
   }
@@ -222,16 +227,17 @@ tr:nth-child(6) td {
 
   .option {
     position: fixed;
-    bottom: 30px;
+    bottom: 160px;
     left: 30px;
     gap: 25px;
   }
 
   #memoSwitch {
-    background-color: yellow;
+    background-color: orange;
     border-radius: 50%;
     padding: 5px 7px;
     margin-bottom: 0;
+    margin-top: 10px;
   }
 
   #memo {
@@ -243,6 +249,7 @@ tr:nth-child(6) td {
   #memo .name {
     display: block;
     margin-bottom: 0;
+    margin-top: 20px;
   }
 
   .btn {
