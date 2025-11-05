@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>数独 -ナンプレ-</title>
+    <meta name="descreption" content="数字を使った9×9のパズルゲーム" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="ress/dist/ress.min.css" />
+    <link rel="stylesheet" href="css/selectScreen.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+
+  <body>
+    <h1>難易度設定</h1>
+    <div class="setting">
+      <h2>難易度を選択してください</h2>
+      <div class="button">
+        <a class="btn color" href="difficulty/beginner.html" alt="初級">初級</a>
+        <a class="btn color" href="difficulty/intermediate.html" alt="中級">中級</a>
+        <a class="btn color" href="difficulty/advanced.html" alt="上級">上級</a>
+        <a id="secret" class="btn color" href="difficulty/superclass.html" alt="超級">超級</a>
+      </div>
+    </div>
+    <div class="secret-message">
+      Enterキーを何回も連打すると、いいことあるかも？
+    </div>
+  </body>
+</html>
