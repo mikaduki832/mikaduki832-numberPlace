@@ -1,3 +1,10 @@
+// 効果音
+
+function playSound(src) {
+  const audio = new Audio(src);
+  audio.play();
+}
+
 const secretButton = document.getElementById("secret");
 
 let secretCount = 0;
