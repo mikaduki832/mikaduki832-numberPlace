@@ -56,6 +56,9 @@ document.addEventListener("keydown", (e) => {
   }
 
   if (selectedCell && key === "Shift") {
+    // 数字が入力されていない場合は無視
+    if (!selectedCell.textContent.trim()) return;
+
     toggleLocked(selectedCell);
   }
 });
@@ -70,6 +73,20 @@ keyboard.addEventListener("click", (e) => {
     handleNumberInput(keyValue);
   }
 });
+
+const numDelete = document.getElementById('num-delete');
+
+numDelete.addEventListener('click', () => {
+  if (selectedCell.dataset.fixed === "true") return;
+  clearSelectedCell();
+})
+
+const numLock = document.getElementById('lock');
+
+numLock.addEventListener('click', () => {
+  if (!selectedCell.textContent.trim()) return;
+  toggleLocked(selectedCell);
+})
 
 // 数字を入れるセルの選択
 
@@ -95,7 +112,7 @@ memoButton.addEventListener('click', () => {
 })
 
 document.addEventListener("keydown", (e) => {
-  if(e.isComposing) return;
+  if (e.isComposing) return;
   if (e.key === " ") {
     memoOn();
   }
