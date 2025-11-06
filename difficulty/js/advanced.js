@@ -1,84 +1,89 @@
-// 解答の穴を45個空ける //
+<!DOCTYPE html>
+<html lang="ja">
 
-function removeCellsWithUniquenessCheck(fullGrid, maxRemove = 45) {
-  const puzzle = fullGrid.map((row) => row.slice());
-  let removed = 0;
+<head>
+  <meta charset="UTF-8" />
+  <title>数独 -ナンプレ-</title>
+  <meta name="descreption" content="数字を使った9×9のパズルゲーム" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="ress/dist/ress.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js" defer></script>
+  <script src="js/utils.js" defer></script>
+  <script src="js/advanced.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/event.js" defer></script>
+</head>
 
-  while (removed < maxRemove) {
-    const row = Math.floor(Math.random() * 9);
-    const col = Math.floor(Math.random() * 9);
+<body>
 
-    if (puzzle[row][col] !== 0) {
-      const backup = puzzle[row][col];
-      puzzle[row][col] = 0;
+  <div class="container">
+    <div class="option">
+      <button id="hint" onclick="giveHint()" class="btn">ヒント<br>（残り <span id="hint-count"></span> 回）</button>
+      <button id="check" class="btn">判定</button>
+      <button id="allDelete" onclick="allDelete()" class="btn">全削除</button>
+      <button id="return" class="btn" style="display: none;">再挑戦</button>
+    </div>
+    <div class="main">
+      <div class="manual">空白のマスを選択してクリック</div>
+      <table id="sudoku"></table>
+      <div id="timer">00:00</div>
+    </div>
+    <div class="input">
+      <div id="number">
+        <div class="name">数字入力</div>
+        <div class="key">
+          数字キー<br>
+          0～9
+        </div>
+      </div>
+      <div id="delete">
+        <div class="name">削除</div>
+        <div class="flex">
+          <div class="key">
+            Back<br>
+            Space
+          </div>
+          <div>or</div>
+          <div class="key">Delete</div>
+        </div>
+      </div>
+      <div id="memo">
+        <table class="keyboard">
+          <tbody>
+            <tr>
+              <td id="one">1</td>
+              <td id="two">2</td>
+              <td id="three">3</td>
+            </tr>
+            <tr>
+              <td id="four">4</td>
+              <td id="five">5</td>
+              <td id="six">6</td>
+            </tr>
+            <tr>
+              <td id="seven">7</td>
+              <td id="eight">8</td>
+              <td id="nine">9</td>
+            </tr>
+            <tr>
+              <td id="num-delete">Delete</td>
+              <td></td>
+              <td id="lock">Lock</td>
+            </tr>
+        </table>
+        <div class="name">メモ機能</div>
+        <div id="memoSwitch">OFF</div>
+        <div class="key">Space</div>
+      </div>
+      <div id="numLock">
+        <div class="name">
+          数字固定<br>
+          （削除不可にする）</div>
+        <div class="key">Shift</div>
+      </div>
+    </div>
+  </div>
+</body>
 
-      const copy = puzzle.map((r) => r.slice());
-      const solutions = solveSudoku(copy, 0);
-
-      if (solutions === 1) {
-        removed++;
-      } else {
-        puzzle[row][col] = backup;
-      }
-    }
-  }
-
-  return puzzle;
-}
-
-let solutionGrid = generateSudoku(); // 完成盤
-let puzzleGrid = removeCellsWithUniquenessCheck(solutionGrid, 45);
-
-const table = document.getElementById("sudoku");
-
-for (let i = 0; i < 9; i++) {
-  const row = document.createElement("tr");
-  for (let j = 0; j < 9; j++) {
-    const cell = document.createElement("td");
-
-    const val = puzzleGrid[i][j];
-    if (val !== 0) {
-      cell.textContent = val;
-      cell.classList.add("fixed");
-    } else {
-      cell.textContent = "";
-      cell.classList.add("answer-cell");
-    }
-
-    row.appendChild(cell);
-  }
-  table.appendChild(row);
-}
-
-function returnPuzzle() {
-  // 盤面を再生成
-  solutionGrid = generateSudoku();
-  puzzleGrid = removeCellsWithUniquenessCheck(solutionGrid, 45);
-
-  // <table> をクリア
-  const table = document.getElementById("sudoku");
-  table.innerHTML = "";
-
-  // 再描画
-  for (let i = 0; i < 9; i++) {
-    const row = document.createElement("tr");
-    for (let j = 0; j < 9; j++) {
-      const cell = document.createElement("td");
-      const val = puzzleGrid[i][j];
-
-      if (val !== 0) {
-        cell.textContent = val;
-        cell.classList.add("fixed");
-      } else {
-        cell.textContent = "";
-        cell.classList.add("answer-cell");
-      }
-
-      row.appendChild(cell);
-    }
-    table.appendChild(row);
-  }
-
-  // セルクリック処理の再登録（必要であれば）
-  selectedCell = null;
-}
+</html>
